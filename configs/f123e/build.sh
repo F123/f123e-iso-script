@@ -2,7 +2,7 @@
 
 set -e -u
 
-iso_name=TalkingArch
+iso_name=F123e
 iso_label="ARCH_$(date +%Y%m)"
 iso_version=$(date +%Y.%m.%d)
 install_dir=arch
