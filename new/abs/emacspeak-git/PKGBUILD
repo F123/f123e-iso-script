@@ -1,0 +1,39 @@
+# Maintainer: Steve Holmes <steve.holmes88@gmail.com>
+# Contributors: Chris Brannon <cmbrannon79@gmail.com>
+pkgname=emacspeak-git
+pkgver=helpfuldog27g663f1f6dc
+pkgrel=1
+pkgdesc="Emacs extension that provides spoken output"
+arch=(i686 x86_64)
+url="http://emacspeak.sourceforge.net/"
+license=('GPL' 'custom')
+depends=('emacs' 'tcl>=8.6' 'tcl<8.7' 'tclx' 'espeak')
+optdepends=(  'eflite: software speech via the FLite TTS engine')
+makedepends=('git')
+provides=(emacspeak)
+conflicts=(emacspeak)
+install='emacspeak-git.install'
+source=(${pkgname}::'git://github.com/tvraman/emacspeak.git')
+md5sums=('SKIP')
+
+#prepare() {
+#  cd ${srcdir}/${pkgname}
+#  sed -i -e 's, /etc/info-dir, $(DESTDIR)$(infodir)/dir,g;s, $(infodir)/, $(DESTDIR)$(infodir)/,' info/Makefile
+#}
+
+pkgver() {
+  cd ${srcdir}/${pkgname}
+  git describe | tr [:upper:] [:lower:] | tr -d '-'
+}
+
+build() {
+  cd ${srcdir}/${pkgname}
+  make config
+  make emacspeak
+  make espeak
+}
+
+package() {
+  mkdir -p "${pkgdir}/usr/local/src"
+  cp -r ${srcdir}/${pkgname}/* ${pkgdir}/usr/local/src
+}

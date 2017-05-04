@@ -43,6 +43,7 @@ ntp
 openconnect
 openssh
 openvpn
+package-query
 partclone
 parted
 partimage
@@ -68,6 +69,6 @@ wget
 wireless_tools
 wpa_actiond
 wvdial
-xl2tpd
 yaourt
+xl2tpd
 zd1211-firmware

@@ -1,0 +1,5 @@
+*.xz
+emacspeak-git/
+pkg/
+src/
+.SRCINFO
