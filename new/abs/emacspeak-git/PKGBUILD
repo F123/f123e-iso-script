@@ -1,7 +1,7 @@
 # Maintainer: Steve Holmes <steve.holmes88@gmail.com>
 # Contributors: Chris Brannon <cmbrannon79@gmail.com>
 pkgname=emacspeak-git
-pkgver=helpfuldog27g663f1f6dc
+pkgver=helpfuldog28g1a1a9cd5a
 pkgrel=1
 pkgdesc="Emacs extension that provides spoken output"
 arch=(i686 x86_64)
