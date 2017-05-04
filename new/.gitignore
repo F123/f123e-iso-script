@@ -3,3 +3,6 @@ alpha*/out/*
 beta*/work/*
 beta*/out/*
 
+# Byte-compiled elisp
+*.elc
+
