@@ -30,6 +30,7 @@ ipw2100-fw
 ipw2200-fw
 irssi
 lftp
+libnewt
 linux-atm
 lsscsi
 mc
@@ -55,6 +56,7 @@ rp-pppoe
 rsync
 sdparm
 sg3_utils
+slang
 smartmontools
 speedtouch
 sudo
