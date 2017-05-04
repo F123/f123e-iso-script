@@ -1,0 +1,14 @@
+
+!emacspeak-git/PKGBUILD
+emacspeak-git/*
+
+!package-query/PKGBUILD
+package-query/*
+
+!tclx/PKGBUILD
+tclx/*
+
+!yaourt/PKGBUILD
+yaourt/*
+
+
