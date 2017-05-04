@@ -7,10 +7,6 @@
 
  (load-file "/usr/local/src/emacspeak/lisp/emacspeak-setup.el")
 
-(prefer-coding-system 'utf-8)
-(setq coding-system-for-read 'utf-8)
-(setq coding-system-for-write 'utf-8)
-
 (set 'custom-file (expand-file-name "~/.emacs.d/custom.el"))
 (load custom-file)
 
@@ -30,7 +26,6 @@ load-path)))
 (load-library "abbrev-prepare")
 (load-library "text-mode-prepare")
 (load-library "c-code-folding-prepare")
-(load-library "mymacros")
 
 ;; I want to evaluate elisp
 (put 'eval-expression 'disabled nil)
@@ -57,21 +52,3 @@ load-path)))
 ;; Meta ? for help
 (global-set-key "\M-?" 'help-command)
 
-
- 
- (require 'ox-md)
- (setq org-publish-project-alist 
-   '(
-     ("f123blog"
-        :base-extension "org"
-         :base-directory "~/f123.github.io/org-source-files/"
-        :publishing-directory "~/f123.github.io"
-     :recursive t
-     :publishing-function org-md-publish-to-md
-     :body-only t
-     :with-toc nil
-     :preserve-breaks t
-:section-numbersnil
-     )))
-
-(load-library "omx-settings.el")
