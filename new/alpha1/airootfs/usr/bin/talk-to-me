@@ -5,6 +5,6 @@ if [ -f $started_flag ]; then
 fi
 systemctl stop espeakup
 sleep 5
-pick-a-card
+#pick-a-card
 systemctl start espeakup
 touch $started_flag
