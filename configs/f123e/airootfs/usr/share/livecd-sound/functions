@@ -187,13 +187,13 @@ preinit_levels()
 # List all cards that *should* be usable for PCM audio.  In my experience,
 # the console speaker (handled by the pcsp driver) isn't a suitable playback
 # device, so we'll exclude it.
-#list_non_pcsp_cards()
-#{
-#	for card in $(echo_card_indices); do
-#		local cardfile="/proc/asound/card${card}/id"
-#		if [ -r "$cardfile" -a -f "$cardfile" ] && \
-#		    [ "$(cat "$cardfile")" != pcsp ]; then
-#			echo "$card"
-#		fi
-#	done
-#}
+list_non_pcsp_cards()
+{
+	for card in $(echo_card_indices); do
+		local cardfile="/proc/asound/card${card}/id"
+		if [ -r "$cardfile" -a -f "$cardfile" ] && \
+		    [ "$(cat "$cardfile")" != pcsp ]; then
+			echo "$card"
+		fi
+	done
+}
