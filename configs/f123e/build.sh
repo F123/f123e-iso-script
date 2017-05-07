@@ -4,7 +4,7 @@ set -e -u
 
 iso_name=F123e
 iso_label="ARCH_$(date +%Y%m%d)"
-iso_release="alpha01"
+iso_release=
 iso_version="$(date +%Y.%m.%d)"
 install_dir=arch
 work_dir=work
