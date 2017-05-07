@@ -16,11 +16,6 @@ install='emacspeak-git.install'
 source=(${pkgname}::'git://github.com/tvraman/emacspeak.git')
 md5sums=('SKIP')
 
-#prepare() {
-#  cd ${srcdir}/${pkgname}
-#  sed -i -e 's, /etc/info-dir, $(DESTDIR)$(infodir)/dir,g;s, $(infodir)/, $(DESTDIR)$(infodir)/,' info/Makefile
-#}
-
 pkgver() {
   cd ${srcdir}/${pkgname}
   git describe | tr [:upper:] [:lower:] | tr -d '-'
