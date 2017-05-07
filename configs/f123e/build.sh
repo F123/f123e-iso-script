@@ -4,11 +4,18 @@ set -e -u
 
 iso_name=F123e
 iso_label="ARCH_$(date +%Y%m%d)"
+iso_release="alpha01"
 iso_version="$(date +%Y.%m.%d)"
 install_dir=arch
 work_dir=work
 out_dir=out
 gpg_key=
+
+if [ ! -z ${iso_release} ]; then
+	iso_name="${iso_name}-${iso_release}"
+	work_dir="${iso_release}_${work_dir}"
+	out_dir="${iso_release}_${out_dir}"
+fi
 
 arch=$(uname -m)
 verbose=""
