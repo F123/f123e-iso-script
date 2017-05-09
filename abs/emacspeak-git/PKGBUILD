@@ -16,6 +16,11 @@ install='emacspeak-git.install'
 source=(${pkgname}::'git://github.com/tvraman/emacspeak.git')
 md5sums=('SKIP')
 
+prepare() {
+  cd ${srcdir}/${pkgname}/info
+  sed -i 's|\($(EMACS)\)|#\1|' Makefile
+}
+
 pkgver() {
   cd ${srcdir}/${pkgname}
   git describe | tr [:upper:] [:lower:] | tr -d '-'
@@ -26,6 +31,8 @@ build() {
   make config
   make emacspeak
   make espeak
+  cd info
+  make
 }
 
 package() {
