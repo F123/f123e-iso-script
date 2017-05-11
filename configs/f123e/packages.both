@@ -16,6 +16,8 @@ dnsmasq
 dnsutils
 dosfstools
 elinks
+emacs
+emacspeak-git
 espeakup
 ethtool
 exfat-utils

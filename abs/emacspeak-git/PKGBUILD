@@ -1,7 +1,7 @@
 # Maintainer: Steve Holmes <steve.holmes88@gmail.com>
 # Contributors: Chris Brannon <cmbrannon79@gmail.com>
 pkgname=emacspeak-git
-pkgver=helpfuldog28g1a1a9cd5a
+pkgver=helpfuldog71gaccdf98f8
 pkgrel=1
 pkgdesc="Emacs extension that provides spoken output"
 arch=(i686 x86_64)
@@ -17,8 +17,8 @@ source=(${pkgname}::'git://github.com/tvraman/emacspeak.git')
 md5sums=('SKIP')
 
 #prepare() {
-#  cd ${srcdir}/${pkgname}
-#  sed -i -e 's, /etc/info-dir, $(DESTDIR)$(infodir)/dir,g;s, $(infodir)/, $(DESTDIR)$(infodir)/,' info/Makefile
+#  cd ${srcdir}/${pkgname}/info
+#  sed -i 's|\($(EMACS)\)|#\1|' Makefile
 #}
 
 pkgver() {
@@ -31,9 +31,11 @@ build() {
   make config
   make emacspeak
   make espeak
+  cd info
+  gzip *.info
 }
 
 package() {
-  mkdir -p "${pkgdir}/usr/local/src"
-  cp -r ${srcdir}/${pkgname}/* ${pkgdir}/usr/local/src
+  mkdir -p "${pkgdir}/usr/local/src/emacspeak"
+  cp -r ${srcdir}/${pkgname}/* ${pkgdir}/usr/local/src/emacspeak
 }
