@@ -3,10 +3,11 @@
 set -e
 
 ABS=./abs
-REPO="/opt/pacman/x86_64/customrepo"
-NAME=repo.db.tar.gz
+ARCH=x86_64
+REPO="/opt/pacman/${ARCH}/f123elivecd"
+NAME=f123elivecd.db.tar.gz
 
-find ${ABS} -name *.pkg.tar.xz -exec cp {} ${REPO} \;
+#find ${ABS} -name *.pkg.tar.xz -exec cp {} ${REPO} \;
 
 repo-add ${REPO}/${NAME} ${REPO}/*.pkg.tar.xz
 

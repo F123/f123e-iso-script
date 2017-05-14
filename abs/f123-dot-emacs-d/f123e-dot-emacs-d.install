@@ -1,0 +1,13 @@
+
+post_install() {
+  cp -r /etc/skel/.emacs.d/ /root
+}
+
+post_upgrade() {
+  post_install $1
+}
+
+pre_remove() {
+  rm -r /root/.emacs.d/
+  rm -r /etc/skel/.emacs.d
+}

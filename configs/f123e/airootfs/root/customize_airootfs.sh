@@ -21,3 +21,11 @@ sed -i 's/#\(HandleLidSwitch=\)suspend/\1ignore/' /etc/systemd/logind.conf
 
 systemctl enable pacman-init.service choose-mirror.service livecd-alsa-unmuter.service brltty.service
 systemctl set-default multi-user.target
+
+cat <<EOF >> /etc/pacman.conf
+
+[f123elivecd]
+SigLevel = Optional TrustAll
+Server = file:///opt/pacman/x86_64/f123elivecd
+
+EOF
