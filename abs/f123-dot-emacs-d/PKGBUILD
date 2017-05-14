@@ -1,0 +1,28 @@
+pkgname=f123e-dot-emacs-d
+pkgver=1
+pkgrel=1
+pkgdesc="The .emacs.d/ configuration for F123e"
+arch=('any')
+url="https://f123.github.io"
+license=('GPL')
+depends=('emacs')
+makedepends=('git')
+provides=(f123-dot-emacs-d)
+conflicts=(f123e-dot-emacs-d)
+install='f123e-dot-emacs-d.install'
+source=(${pkgname}::'git://github.com/f123/f123.emacs.d')
+md5sums=('SKIP')
+
+pkgver() {
+  cd ${srcdir}/${pkgname}
+  git describe | tr [:upper:] [:lower:] | tr -d '-'
+}
+
+build() {
+  cd ${srcdir}/${pkgname}/f123e
+}
+
+package() {
+  mkdir -p "${pkgdir}/etc/skel"
+  cp -r ${srcdir}/f123e/* ${pkgdir}/etc/skel
+}
