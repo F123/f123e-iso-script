@@ -4,11 +4,7 @@ set -e -u
 
 iso_name=F123e
 iso_label="ARCH_$(date +%Y%m%d)"
-<<<<<<< HEAD
-iso_release=
-=======
 iso_release=$(git describe | cut -f1 -d-)
->>>>>>> alpha_iso
 iso_version="$(date +%Y.%m.%d)"
 install_dir=arch
 work_dir=work
