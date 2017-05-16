@@ -5,7 +5,6 @@ bluez
 bluez-libs
 brltty-minimal
 btrfs-progs
-clonezilla
 crda
 darkhttpd
 ddrescue
@@ -37,8 +36,8 @@ lftp
 libnewt
 linux-atm
 lsscsi
-lynx
 mc
+mplayer
 mtools
 ndisc6
 nfs-utils
@@ -48,7 +47,6 @@ ntfs-3g
 ntp
 openconnect
 openssh
-openvpn
 package-query
 partclone
 parted
@@ -63,7 +61,7 @@ sdparm
 sg3_utils
 slang
 smartmontools
-speedtouch
+sox
 sudo
 tcl
 tclx
