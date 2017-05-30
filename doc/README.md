@@ -18,3 +18,20 @@ The name of the db file must match what is between square-brackets in pacman.con
 
 
 
+## Git Tagging
+
+List tags:
+
+	git tag
+
+Annotated tag creation:
+
+	git tag -a v1.4 -m "my version 1.4"
+
+If you don't give the `-m` switch git opens the editor for your message.
+
+Show everything about a tag:
+
+	git show v1.4
+
+
