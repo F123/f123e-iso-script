@@ -53,6 +53,8 @@ parted
 partimage
 ppp
 pptpclient
+python-pip
+python2-pip
 refind-efi
 rfkill
 rp-pppoe
