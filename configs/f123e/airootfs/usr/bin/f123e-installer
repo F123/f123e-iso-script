@@ -45,7 +45,7 @@ do
 	language
 	source "$lang_file"
 	export reload=true
-
+exit 0
 }
 
 main() {
