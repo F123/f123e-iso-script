@@ -30,9 +30,9 @@
 
 init() {
 
-	FI_CONF="/etc/f123-installer.conf"
+	FI_CONF="/etc/f123e-installer.conf"
+	FI_DIR="/usr/share/f123e-installer"
 	FI_LIB="/usr/lib/f123e-installer"
-
 
 	trap '' 2
 	
