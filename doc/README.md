@@ -34,4 +34,6 @@ Show everything about a tag:
 
 	git show v1.4
 
+Installed v86d from the AUR (unicode vesa frame-buffer)
+
 
