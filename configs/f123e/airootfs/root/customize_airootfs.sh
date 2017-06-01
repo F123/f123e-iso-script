@@ -30,4 +30,9 @@ Server = file:///opt/pacman/x86_64/f123elivecd
 
 EOF
 
-pip install whiptail
+
+locale-gen
+
+
+
+

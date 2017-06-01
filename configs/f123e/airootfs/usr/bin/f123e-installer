@@ -45,12 +45,13 @@ do
 	language
 	source "$lang_file"
 	export reload=true
-exit 0
+
 }
 
 main() {
 
 	update_mirrors
+	exit 0
 	check_connection
 	set_keys
 	set_locale
