@@ -68,15 +68,14 @@ sudo
 tcl
 tclx
 tcpdump
-terminus-font
 testdisk
 usb_modeswitch
-v86d
 vim-minimal
 vpnc
 wget
 wireless_tools
 wpa_actiond
+wpa_supplicant
 wvdial
 yaourt
 xl2tpd
