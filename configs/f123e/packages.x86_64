@@ -10,6 +10,7 @@ darkhttpd
 ddrescue
 dhclient
 dialog
+dmidecode
 dmraid
 dnsmasq
 dnsutils
@@ -78,5 +79,6 @@ wpa_actiond
 wpa_supplicant
 wvdial
 yaourt
+xdialog
 xl2tpd
 zd1211-firmware
