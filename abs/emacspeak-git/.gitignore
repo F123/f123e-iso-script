@@ -1,6 +1,0 @@
-*.xz
-!emacspeak-git.install
-emacspeak-git/
-pkg/
-src/
-.SRCINFO
