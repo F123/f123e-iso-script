@@ -11,6 +11,8 @@ x86_64.
 The build system is based on *archiso* and on Kyle's Talking Arch. With 
 additions.
 
+https://wiki.archlinux.org/index.php/archiso
+
 To generate an ISO run the *build.sh* script in:
 
 	./configs/f123e
