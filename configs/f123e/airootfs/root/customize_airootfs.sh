@@ -29,3 +29,10 @@ SigLevel = Optional TrustAll
 Server = file:///opt/pacman/x86_64/f123elivecd
 
 EOF
+
+
+locale-gen
+
+
+
+

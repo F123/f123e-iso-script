@@ -10,6 +10,7 @@ darkhttpd
 ddrescue
 dhclient
 dialog
+dmidecode
 dmraid
 dnsmasq
 dnsutils
@@ -53,6 +54,8 @@ parted
 partimage
 ppp
 pptpclient
+python-pip
+python2-pip
 refind-efi
 rfkill
 rp-pppoe
@@ -73,7 +76,9 @@ vpnc
 wget
 wireless_tools
 wpa_actiond
+wpa_supplicant
 wvdial
 yaourt
+xdialog
 xl2tpd
 zd1211-firmware

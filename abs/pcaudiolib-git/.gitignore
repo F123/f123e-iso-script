@@ -1,0 +1,5 @@
+*.xz
+pcaudiolib-git/
+pkg/
+src/
+.SRCINFO
