@@ -8,6 +8,7 @@ btrfs-progs
 crda
 darkhttpd
 ddrescue
+device-mapper
 dhclient
 dialog
 dmidecode
@@ -33,13 +34,17 @@ hdparm
 ipw2100-fw
 ipw2200-fw
 irssi
+json-c
 lftp
+libaio
 libnewt
+liburcu
 linux-atm
 lsscsi
 mc
 mplayer
 mtools
+multipath-tools
 ndisc6
 nfs-utils
 nilfs-utils
@@ -59,6 +64,7 @@ python2-pip
 refind-efi
 rfkill
 rp-pppoe
+rpi-image-tool
 rsync
 sdparm
 sg3_utils
