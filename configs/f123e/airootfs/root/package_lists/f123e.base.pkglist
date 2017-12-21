@@ -1,0 +1,13 @@
+acpi
+alsa-utils
+base
+base-devel
+espeakup
+git
+json-c
+libaio
+liburcu
+multipath-tools
+ntp
+openssh
+rpi-image-tool

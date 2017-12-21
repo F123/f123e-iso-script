@@ -73,7 +73,7 @@ echo "Mounting the disk partition..."
 mount "${partition}" /mnt
 
 echo "Pacstrapping the new system in what will be the chroot..."
-pacstrap /mnt --needed --noprogressbar base git espeakup alsa-utils openssh base-devel acpi
+pacstrap /mnt --needed --noprogressbar - < ./package_lists/f123e.base.pkglist
 
 echo "Setting up fstab..."
 genfstab -U -p /mnt >> /mnt/etc/fstab
@@ -135,6 +135,9 @@ systemctl enable dhcpcd.service
 
 echo "Enabling the espeakup service..."
 systemctl enable espeakup.service
+
+echo "Enabling the ntpd service..."
+systemctl enable ntpd.service
 
 EOF
 

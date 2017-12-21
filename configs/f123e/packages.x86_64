@@ -8,7 +8,6 @@ btrfs-progs
 crda
 darkhttpd
 ddrescue
-device-mapper
 dhclient
 dialog
 dmidecode
@@ -44,7 +43,6 @@ lsscsi
 mc
 mplayer
 mtools
-multipath-tools
 ndisc6
 nfs-utils
 nilfs-utils
@@ -64,7 +62,6 @@ python2-pip
 refind-efi
 rfkill
 rp-pppoe
-rpi-image-tool
 rsync
 sdparm
 sg3_utils
