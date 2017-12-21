@@ -1,0 +1,228 @@
+
+<h1 class="no_toc&gt;" id="accessible-text-based-menu-research">Accessible text-based Menu Research</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#options" id="markdown-toc-options">Options</a></li>
+  <li><a href="#arch-options-that-exist-already" id="markdown-toc-arch-options-that-exist-already">Arch Options that Exist Already</a></li>
+  <li><a href="#screen-reader" id="markdown-toc-screen-reader">Screen Reader</a></li>
+  <li><a href="#the-complication-presented-by-accessibility-requirements" id="markdown-toc-the-complication-presented-by-accessibility-requirements">The Complication Presented by Accessibility Requirements</a></li>
+  <li><a href="#arch-ultimate-installer-aui" id="markdown-toc-arch-ultimate-installer-aui">Arch Ultimate Installer (AUI)</a></li>
+  <li><a href="#arch-anywhere-installer" id="markdown-toc-arch-anywhere-installer">Arch Anywhere Installer</a>    <ul>
+      <li><a href="#menus" id="markdown-toc-menus">Menus</a></li>
+      <li><a href="#good-points-about-this-installer" id="markdown-toc-good-points-about-this-installer">Good Points About this Installer</a></li>
+    </ul>
+  </li>
+  <li><a href="#text-menus-in-general" id="markdown-toc-text-menus-in-general">Text Menus in General</a></li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Installing Linux from bootable media is not an easy or a straightforward process for the beginner.</p>
+
+<p>This is especially true if the user is visually impaired.</p>
+
+<p>If the user is an <em>expert</em> Linux user, it can still be a very difficult process for somebody who cannot see.</p>
+
+<p>In my attempts to find an accessible way to write text-based installation systems for the F123 project I have looked at a lot of different aspects of this accessibility and ease-of-use problem.</p>
+
+<h2 id="options">Options</h2>
+
+<p>Since the new version of F123 is based on Arch Linux, there is no complex and well-tested installation system included.</p>
+
+<p>Other Linux distributions, such as Debian and Ubuntu, have installation systems which have been developed over time by large teams of developers.</p>
+
+<p>Good attention to accessibility has been given in the production of the installation systems in use by these two distributions, and some of their downstream derivatives.</p>
+
+<p>Also of course, there has been a very large amount of testing by use of all of the accessibility features of these major distributions by the Linux user community.</p>
+
+<h2 id="arch-options-that-exist-already">Arch Options that Exist Already</h2>
+
+<p>I have found two systems which have been written by other developers and released as open source:</p>
+
+<ul>
+  <li>Arch Ultimate Installer (AUI)</li>
+  <li>Arch Anywhere Installer</li>
+</ul>
+
+<p>Both of these systems have their drawbacks, not least that they are not focussed on the beginner with little or no prior knowledge of Linux, or even the structure of disk file-systems.</p>
+
+<p>I will outline the details of each of these two systems below and point out drawbacks I have discovered, or positive points in their favour.</p>
+
+<p>In doing so we will encounter a number of programs or scripts which exist for inclusion in installation scripts, for the generation of various kinds of text <code>dialogs</code>. Again these are many and various and each has plus points and drawbacks.</p>
+
+<h2 id="screen-reader">Screen Reader</h2>
+
+<p>I should point out that in all cases, during my researches, the screen reader in use was <code>speakup</code>. This screen reader has a serious drawback in that it does not support UTF-8, so is not capable of reading some of the world’s character sets correctly or coherently.</p>
+
+<h2 id="the-complication-presented-by-accessibility-requirements">The Complication Presented by Accessibility Requirements</h2>
+
+<p>It should be obvious to anybody who suffers sight-loss and who tries to use IT, that a lack of sight complicates everything.</p>
+
+<p>Not being able to see the screen makes the comprehension of ‘what to do’ very much more of a problem than if the user can see and read the whole of the screen.</p>
+
+<p>The above sounds glaringly obvious, especially to someone like me who cannot see at all, but it is easy for some to forget.</p>
+
+<h2 id="arch-ultimate-installer-aui">Arch Ultimate Installer (AUI)</h2>
+
+<p>The Arch Ultimate Installer can be cloned from <code>git</code> like this:</p>
+
+<pre><code>git clone https://github.com/helmuthdu/aui.git
+</code></pre>
+
+<h3 class="no_toc" id="how-it-generates-menus">How it Generates Menus</h3>
+
+<p>The Arch Ultimate Installer uses the bash built-in function <code>select</code> to create text menus from which the user can select options during the installation.</p>
+
+<p>The <code>select</code> function takes as an argument a list of options to be displayed with numbers, starting from 1, against each choice.</p>
+
+<p>For example, this line:</p>
+
+<pre><code>select DEVICE in ls /dev/sd? ; do
+</code></pre>
+
+<p>Will present a menu with an option for each hard-disk in the system whose name matches the pattern in the <code>ls</code> command.</p>
+
+<p>If there are three hard-disks which match, the menu will look something like this:</p>
+
+<pre><code>1. /dev/sda
+2. /dev/sdb
+3. /dev/sdc
+</code></pre>
+
+<p>It is normal to give an <code>Exit</code> option as well, and the <code>do/done</code> loop under the <code>select</code> command will loop if an invalid value is typed.</p>
+
+<h3 class="no_toc" id="problems-with-the-select-command">Problems with the <code>select</code> Command</h3>
+
+<p>There is one serious drawback with the <code>select</code> command for accessibility.</p>
+
+<p>It is fine when the number of options is small. Options are displayed in a single column, and the selection choices can easily be heard from the screen reader.</p>
+
+<p>But when the number of choices is large, more than one column is displayed.</p>
+
+<p>These columns are numbered consecutively, first in the down direction and then across.</p>
+
+<p>So, if there are three columns, each containing twenty options, then the first line will be heard as:</p>
+
+<ol>
+  <li>option one, 21. option 21. 41. option 41.</li>
+</ol>
+
+<p>In the above example I have used simple prompts to illustrate.</p>
+
+<p>In some of the menus presented in this way in the Arch Ultimate Installer there are hundreds of options.</p>
+
+<p>For example, in the selection of the keymap, there are over 250 different choices.</p>
+
+<p>In this case the user is made to listen as the screen reader reads every option, and it is necessary to ‘spot’ and remember the number to type for the user’s choice.</p>
+
+<p>It is well known that short-term memory is best when the number of options to remember does not exceed 7.</p>
+
+<p>It is my opinion that the best way to present a selection where there are many choices, is to present them in pages. For example displaying the first twenty options, and a ‘next page’ option.</p>
+
+<p>I therefore don’t think that the Arch Ultimate Installer is very easily used by a user with sight-loss. In other words, it is not very accessible.</p>
+
+<p>It would be necessary to re-write it to make the number of selections presented by each <code>select</code> command smaller.</p>
+
+<h2 id="arch-anywhere-installer">Arch Anywhere Installer</h2>
+
+<p>In September of 2017, after my research, the name of this installer was changed to <code>Anarchy Linux</code> because of a conflict with an existing trademark.</p>
+
+<p>The page is here:</p>
+
+<pre><code>https://arch-anywhere.org/
+</code></pre>
+
+<p>This is actually a complete live Arch distribution, but it includes no accessibility options.</p>
+
+<h3 id="menus">Menus</h3>
+
+<p>Throughout the installation scripts this installer uses the <code>dialog</code> program.</p>
+
+<p><code>dialog</code> can be included in bash scripts to draw on screen various forms of dialog, to present choice lists, for input of text, for selection of options with check-boxes and the like.</p>
+
+<h3 class="no_toc" id="accessibility-problems-with-dialog">Accessibility Problems with <code>dialog</code></h3>
+
+<p>The way <code>dialog</code> is used in this installer is not optimised for accessibility.</p>
+
+<p>In my researches I discovered a command-line option to the <code>dialog</code> command; <code>--visit-items</code>. This option has the effect of making choices presented be read by the screen reader.</p>
+
+<p>To be more specific, without the <code>--visit-items</code> switch, a list of options can only be spoken by using the screen-review feature of the screen reader, whereas if the <code>--visit-items</code> switch is included, focus can be made to the options on the list and they will be spoken individually when the arrow keys are used to navigate the choices.</p>
+
+<h3 class="no_toc" id="ok-and-cancel-buttons">OK and Cancel Buttons</h3>
+
+<p>Another accessibility problem exists with <code>dialog</code> which will, in my opinion, greatly confuse the novice user.</p>
+
+<p>When two buttons are configured, <code>OK</code> and <code>Cancel</code>, they are displayed on the same physical line of the screen.</p>
+
+<p>Because moving the focus from one button to the other triggers the screen reader to read the line, superfluous things are spoken.</p>
+
+<p>Taking this sequence:</p>
+
+<ol>
+  <li>User is presented with list of choices, and the <code>--visit-items</code> switch is included</li>
+  <li>Focus at first is on the top item of the list</li>
+  <li>The user scrolls to his or her choice and presses the <code>tab</code> key</li>
+</ol>
+
+<p>The third item in this sequence cases the line with the chosen item to change it’s appearance, and causes the focus to move to the <code>OK</code> button.</p>
+
+<p>If the chosen option, for example, is <code>Brazil</code>, the word Brazil will be spoken again as the focus moves to the <code>OK</code> button, the word having already been spoken when the scrollbar moved to it. The word <code>OK</code> is also spoken because the line containing the <code>OK</code> button changes.</p>
+
+<p>If the user now presses <code>tab</code> again, <code>OK</code> is again spoken and then the word <code>Cancel</code> as focus moves to the <code>Cancel</code> button.</p>
+
+<p>This is just about usable if the user is experienced in using a system like Linux where accessibility is always patchy at best, or either poor or non-existent at worst.</p>
+
+<p>But the inexperienced user is likely to be left unsure as to which button currently has focus, and hence what will happen if the <code>enter</code> key is now pressed.</p>
+
+<h3 class="no_toc" id="possible-solution">Possible Solution</h3>
+
+<p>A choice selected in a list of options will actually be selected if the user presses the <code>enter</code> key on the option and never presses <code>tab</code> to move to the <code>OK</code> or <code>Cancel</code> buttons, and the same effect as pressing the <code>Cancel</code> button can be achieved by pressing <code>escape</code>.</p>
+
+<p>So this accessibility problem can be solved by:</p>
+
+<ol>
+  <li>Including the <code>--visit-items</code> switch in all calls to <code>dialog</code></li>
+  <li>Not actually defining any <code>OK</code> or <code>Cancel</code> buttons. This is an option which exists in <code>dialog</code></li>
+</ol>
+
+<p>This would involve rewriting the installer to change each call to <code>dialog</code>.</p>
+
+<h3 id="good-points-about-this-installer">Good Points About this Installer</h3>
+
+<p>This installer includes translations into more than 20 languages of most, or all prompts. So it provides a good head-start in localization.</p>
+
+<p>It also includes selection of internet connection, WiFi or wired.</p>
+
+<p>It also includes a great selection of choices of software to install.</p>
+
+<h2 id="text-menus-in-general">Text Menus in General</h2>
+
+<p>As well as the <code>select</code> function built in to <code>bash</code> and the <code>dialog</code> program, there are other systems for generating text menus.</p>
+
+<h3 class="no_toc" id="libnewt">libnewt</h3>
+
+<p>One of the most promising from an accessibility point of view is the <code>libnewt</code> library.</p>
+
+<p>The name <code>newt</code> is an acronym for <code>not Eric's windowing toolkit</code>.</p>
+
+<p>It is relatively simple to draw powerful text dialogs with C programs using <code>libnewt</code>.</p>
+
+<p>To use tese dialogs for an accessible installer, it would be necessary to write a C program which will generate all of the different kinds of dialogs needed.</p>
+
+<p>Possibly one way of doing this would be to actually write a program called <code>dialog</code>, with all of the same, or at least similar, switches to the existing <code>dialog</code> program.</p>
+
+<p>This would make it easier to drop this in to an existing installer which uses <code>dialog</code> to make it more accessible.</p>
+
+<p>This I began to do but it was taking too long.</p>
+
+<h3 class="no_toc" id="pdmenu"><code>pdmenu</code></h3>
+
+<p>I recently found <code>pdmenu</code> and tried it out. IIt is not at all accessible.</p>
+
+<h3 class="no_toc" id="whiptail">Whiptail</h3>
+
+<p>Dialogs drawn with <code>Whiptail</code> are widely used. I can remember what they looked like from when I could see. <code>Whiptail</code> menus used to be used extensively by <code>Fedora</code> and <code>Red Hat</code> Linux.</p>
+
+<p>It suffers from the same accessibility problems relating to focus as <code>dialog</code> (see above).</p>
+
