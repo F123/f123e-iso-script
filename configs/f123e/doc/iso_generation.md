@@ -15,7 +15,7 @@ https://wiki.archlinux.org/index.php/archiso
 
 To generate an ISO run the *build.sh* script in:
 
-	./configs/f123e
+	f123e-iso-script/configs/f123e
 
 This will create output in two directories, the names of which are fixed in the 
 top of build.sh. Read the code.
@@ -43,6 +43,19 @@ But can't confirm this as I can't see at all.
 
 Currently no user-friendly installation system exists but I was intending to 
 create something by editing the files of the `Arch Anywhere Installer`.
+
+## Easy Install Script
+
+When the resulting `.iso` is written to bootable media and booted, a script 
+called:
+
+	easy_base_install.sh
+
+Will be found in the directory `/root`.
+
+When run it will install f123e.
+
+See `easy_base_install.md`, also in `/root` for more information.
 
 ## Screen-readers and Multi-lingual Support
 
